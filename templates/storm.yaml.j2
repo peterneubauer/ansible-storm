@@ -4,7 +4,7 @@ storm.local.dir: "{{storm_local_dir}}"
 
 ### zookeeper.*
 storm.zookeeper.servers:
-{% for host in zookeeper_hosts.split(',') %}
+{% for host in storm_zookeeper_hosts.split(',') %}
     - "{{host.split(':')[0]}}"
 {% endfor %}
 {% if storm_zookeeper_extra_config.items is defined %}
@@ -57,7 +57,7 @@ ui.port: {{storm_ui_port}}
 
 ### transactional.* configs
 transactional.zookeeper.servers:
-{% for host in zookeeper_hosts.split(',') %}
+{% for host in storm_zookeeper_hosts.split(',') %}
     - "{{host.split(':')[0]}}"
 {% endfor %}
 {% if storm_transactional_extra_config.items is defined %}
