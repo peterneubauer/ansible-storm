@@ -1,6 +1,6 @@
 ---
 - name: Install OpenJDK
-  apt: name=openjdk-7-jre-headless state=present
+  apt: name=openjdk-{{java_version}}-jre-headless state=present
   when: not skip_install
 
 - name: Setup group
