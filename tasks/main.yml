@@ -48,8 +48,12 @@
 - set_fact: use_systemd=False
   when: init.stdout != 'systemd'
 
-- include: nimbus.yml tags=storm_nimbus
+- include: nimbus.yml
+  tags:
+    - storm_nimbus
   when: storm_nimbus_enabled
 
-- include: supervisor.yml tags=storm_supervisor
+- include: supervisor.yml
+  tags:
+    - storm_supervisor
   when: storm_supervisor_enabled
